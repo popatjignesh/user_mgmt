@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <h1>Hi {{ user.get_username }}, Welcome to Home Page...!</h1>
+    </body>
+        <form action="" method="post">
+        	<p>
+                {% csrf_token %}
+                
+                <div class="clearfix">
+                  <button type="submit">Logout</button>
+                </div>
+            </p>
+        </form>                
+</html>
