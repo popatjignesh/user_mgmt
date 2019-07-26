@@ -1,12 +1,12 @@
 <html>
     <body>
-        <h1>Hi {{ user.get_username }}, Welcome to Home Page...!</h1>
+        <h1 align=center>Hi {{ user.get_username }}, Welcome to Home Page...!</h1>
     </body>
         <form action="" method="post">
         	<p>
                 {% csrf_token %}
                 
-                <div class="clearfix">
+                <div class="clearfix" align=center>
                   <button type="submit">Logout</button>
                 </div>
             </p>
