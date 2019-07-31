@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <h1 align=center>Hi {{ user.get_username }}, Welcome to Home Page...!</h1>
+        <h3 align=center>You have logged in using a JWT Authentication...!</h3>
+    </body>
+        <form action="" method="post">
+        	<p>
+                {% csrf_token %}
+                
+                <div class="clearfix" align=center>
+                  <button type="submit">Logout</button>
+                </div>
+            </p>
+        </form>                
+</html>

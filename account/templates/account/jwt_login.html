@@ -1,0 +1,35 @@
+<html>
+    <body>
+        <form action="" method="post">
+            <div class="container" align=center>
+                <h1>Login</h1>
+
+                <p>        
+                <label><b>Username</b></label>
+                <input type="text" placeholder="Enter username" name="username" required>
+                </p>
+
+                </p>        
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter password" name="psw" required>
+                <p>
+                    
+                {% csrf_token %}
+
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="submit">Login</button>
+                </div>
+            </div>
+        </form>
+
+        <form action="/account/register/" method="get">
+            <div class="clearfix" align=center>
+                <button type="submit" action="api/jwt-register/">Sign Up</button>
+            </div>
+        </form>
+
+        <h2 align=center>{{ error }}</h1>
+
+    </body>
+</html>
