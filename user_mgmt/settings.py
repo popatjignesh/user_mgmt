@@ -26,7 +26,7 @@ SECRET_KEY = '!1^r^x^3@3&scgfbzbe^oob!hrf9s$0_y5p1a%2__vr5uj+(eg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.43.13']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -140,12 +140,12 @@ JWT_AUTH = {
     'JWT_VERIFY': True,
     'JWT_VERIFY_EXPIRATION': True,
     'JWT_LEEWAY': 0,
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=30),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=300),
     'JWT_AUDIENCE': None,
     'JWT_ISSUER': None,
 
     'JWT_ALLOW_REFRESH': False,
-    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(seconds=60),
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(seconds=600),
 
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
     'JWT_AUTH_COOKIE': None,

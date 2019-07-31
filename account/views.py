@@ -20,54 +20,54 @@ from .serializers import UserSerializer, TokenSerializer
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
 jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
 
-def register(request):
-    if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        username = request.POST['username']
-        psw = request.POST['psw']
-        repeat_psw = request.POST['repeat_psw']
+# def register(request):
+#     if request.method == 'POST':
+#         first_name = request.POST['first_name']
+#         last_name = request.POST['last_name']
+#         email = request.POST['email']
+#         username = request.POST['username']
+#         psw = request.POST['psw']
+#         repeat_psw = request.POST['repeat_psw']
 
-        if psw == repeat_psw:
-            user_obj = User.objects.create_user(username, email , psw)
-            user_obj.first_name = first_name
-            user_obj.last_name = last_name
-            user_obj.save()
-            return redirect('login')
+#         if psw == repeat_psw:
+#             user_obj = User.objects.create_user(username, email , psw)
+#             user_obj.first_name = first_name
+#             user_obj.last_name = last_name
+#             user_obj.save()
+#             return redirect('login')
 
-    return render(request, 'account/registration.html', {})
+#     return render(request, 'account/registration.html', {})
 
-def home(request):
-    if request.method == 'POST':
-        if request.user:
-            return redirect('logout')
-        else:
-            return render(request, 'account/login.html', {})
-    else:
-        if request.user.id:
-            return render(request, 'account/home.html', {})
-        else:
-            return redirect('login')
+# def home(request):
+#     if request.method == 'POST':
+#         if request.user:
+#             return redirect('logout')
+#         else:
+#             return render(request, 'account/login.html', {})
+#     else:
+#         if request.user.id:
+#             return render(request, 'account/home.html', {})
+#         else:
+#             return redirect('login')
 
-def userlogin(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        psw = request.POST['psw']
-        my_user = authenticate(username=username, password=psw)
+# def userlogin(request):
+#     if request.method == 'POST':
+#         username = request.POST['username']
+#         psw = request.POST['psw']
+#         my_user = authenticate(username=username, password=psw)
 
-        if my_user is not None:
-            if my_user.is_active:
-                login(request, my_user)
-                return redirect('home')
-        else:
-            return render(request, 'account/login.html', {"error" : "Username or Password is incorrect...!"})
+#         if my_user is not None:
+#             if my_user.is_active:
+#                 login(request, my_user)
+#                 return redirect('home')
+#         else:
+#             return render(request, 'account/login.html', {"error" : "Username or Password is incorrect...!"})
 
-    return render(request, 'account/login.html', {})
+#     return render(request, 'account/login.html', {})
 
-def userlogout(request):
-    logout(request)
-    return redirect('login')
+# def userlogout(request):
+#     logout(request)
+#     return redirect('login')
 
 
 
